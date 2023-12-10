@@ -1,10 +1,6 @@
 #ifndef MY_GLOBALS_H
     #define MY_GLOBALS_H
 
-    /* WLAN */
-    #define WIFI_SSID "Gyle Geräte"
-    #define WIFI_PASSWORD "uWM%A+ttL!wXM@^^B)A3Z@-#"
-
     //define your default values here, if there are different values in config.json, they are overwritten.
     // char mqtt_server[40] = "10.8.196.116";
     char mqtt_server[40] = "192.168.178.200";
