@@ -39,7 +39,6 @@ void hardware_setup() {
   pinMode(LED_YELLOW, OUTPUT);    // LED pin as output.
   pinMode(LED_RED, OUTPUT);    // LED pin as output.
 
-  Serial.begin(9600);
   Serial.println();
   
   co2Serial.begin(9600);

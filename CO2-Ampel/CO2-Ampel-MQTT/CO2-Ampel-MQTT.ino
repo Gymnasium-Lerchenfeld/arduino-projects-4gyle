@@ -11,8 +11,10 @@ unsigned long previousMillis = 0;   // Stores last time temperature was publishe
 const long interval = 30000;        // Interval at which to publish sensor readings
 
 void setup() {
-    hardware_setup();
-    wifi_setup();
+  Serial.begin(9600);
+  wifi_setup();
+
+  hardware_setup();
 }
 
 /*******************************************************************/
@@ -24,7 +26,7 @@ void loop() {
     // Save the last time a new reading was published
     previousMillis = currentMillis;
     hardware_loop();
-    String topic = "/" + String(raum) + "/co2amp2l";
+    String topic = "/" + String(raum) + "/co2ampel";
     wifi_loop(topic, createJsonMsg());
   }
 }

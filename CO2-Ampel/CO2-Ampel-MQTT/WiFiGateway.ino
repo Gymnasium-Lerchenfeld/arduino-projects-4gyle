@@ -24,10 +24,6 @@ void saveConfigCallback () {
 }
   
 void wifi_setup() {
-  // put your setup code here, to run once:
-  Serial.begin(115200);
-  Serial.println();
-
   //clean FS, for testing
   SPIFFS.format();
 
@@ -37,8 +33,8 @@ void wifi_setup() {
   if (SPIFFS.begin()) {
     Serial.println("mounted file system");
     if (SPIFFS.exists("/config.json")) {
+      Serial.println("/config.json exists");
       //file exists, reading and loading
-      Serial.println("reading config file");
       File configFile = SPIFFS.open("/config.json", "r");
       if (configFile) {
         Serial.println("opened config file");
@@ -47,18 +43,20 @@ void wifi_setup() {
         std::unique_ptr<char[]> buf(new char[size]);
 
         configFile.readBytes(buf.get(), size);
-
- #if defined(ARDUINOJSON_VERSION_MAJOR) && ARDUINOJSON_VERSION_MAJOR >= 6
+        Serial.println(ARDUINOJSON_VERSION_MAJOR);
+// #if defined(ARDUINOJSON_VERSION_MAJOR) && ARDUINOJSON_VERSION_MAJOR >= 6
         DynamicJsonDocument json(1024);
         auto deserializeError = deserializeJson(json, buf.get());
         serializeJson(json, Serial);
         if ( ! deserializeError ) {
+/*
 #else
         DynamicJsonBuffer jsonBuffer;
         JsonObject& json = jsonBuffer.parseObject(buf.get());
         json.printTo(Serial);
         if (json.success()) {
 #endif
+*/
           Serial.println("\nparsed json");
           strcpy(mqtt_server, json["mqtt_server"]);
           strcpy(mqtt_port, json["mqtt_port"]);
@@ -69,11 +67,15 @@ void wifi_setup() {
           Serial.println("failed to load json config");
         }
         configFile.close();
+      } else {
+        Serial.println("failed to open /config.json for reading");
       }
+    } else {
+      Serial.println("/config.json does not exist");
     }
-  } else {
+  } else { // if (SPIFFS.begin()) {
     Serial.println("failed to mount FS");
-  }
+  } // if (SPIFFS.begin()) {
   //end read
 
   // The extra parameters to be configured (can be either global or just in the setup)
@@ -112,7 +114,7 @@ void wifi_setup() {
   //sets timeout until configuration portal gets turned off
   //useful to make it all retry or go to sleep
   //in seconds
-  //wifiManager.setTimeout(120);
+  wifiManager.setTimeout(120);
 
   //fetches ssid and pass and tries to connect
   //if it does not connect it starts an access point with the specified name
