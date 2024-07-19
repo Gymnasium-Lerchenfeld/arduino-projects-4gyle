@@ -4,3 +4,4 @@ Dieses sind:
 - CO2-Ampel
 - Alarmgeber für die Aquarien
 - Zeitmessung mit IR-Reflexlichtschranken
+- Lange Nacht der Informatik 2024
