@@ -7,4 +7,4 @@ Erweiterung in der bunten Woche am 10.07.2024
 ## Thema
 
 Bauen eines inteligenten Wandregals.
-!/../develop/images/Regal.png!
+![Das Regal](https://github.com/Gymnasium-Lerchenfeld/arduino-projects-4gyle/blob/develop/LangeNachtDerInformatik2024/images/Regal.png)!
