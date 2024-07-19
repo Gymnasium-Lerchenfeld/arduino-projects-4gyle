@@ -7,4 +7,4 @@ Erweiterung in der bunten Woche am 10.07.2024
 ## Thema
 
 Bauen eines inteligenten Wandregals.
-!../images/Regal.png!
+!/../develop/images/Regal.png!
