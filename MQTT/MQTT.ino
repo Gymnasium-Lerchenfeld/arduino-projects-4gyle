@@ -21,12 +21,15 @@ float pres = 0.0;
 bool bmeError = false;
 
 /* WLAN */
+//#define WIFI_SSID "Gyle Geräte"
+//#define WIFI_PASSWORD "uWM%A+ttL!wXM@^^B)A3Z@-#"
 #define WIFI_SSID "SchuppenMustin"
 #define WIFI_PASSWORD "11ff22ff33ff44ff55ff66ff77"
 
 /* MQTT */
+//const char* MQTT_BROKER = "192.168.178.200";
 const char* MQTT_BROKER = "10.8.196.116";
-const char* MQTT_PORT = "1883";
+const uint16_t MQTT_PORT = 1883;
 const char* mqttUser = "mqtt";
 const char* mqttPassword = "mqtt12";
 String myIP;

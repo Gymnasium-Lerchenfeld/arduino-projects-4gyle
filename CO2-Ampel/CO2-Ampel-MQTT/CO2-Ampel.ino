@@ -9,6 +9,11 @@
  * - yellow: CO2 < 1200 ppm
  * - red: CO2 > 2000 ppm
  *  
+ * Made for NodeMCU, included into Arduino IDE via
+ * http://arduino.esp8266.com/stable/package_esp8266com_index.json
+ *
+ * siehe
+ * https://blog.opendatalab.de/codeforbuga/2016/07/02/arduino-ide-mit-nodemcu-esp8266
  */
 #include "CO2-Ampel.h"
 
